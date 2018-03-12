@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<!-- 扫描注释包 -->
+	<context:component-scan base-package="ht.controller" ></context:component-scan>
+	<!-- 不处理静态资源 -->
+	<mvc:default-servlet-handler />
+	<!-- 注解所需 @RequestMapping -->
+	<!--注解映射的支持 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg value="UTF-8" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<!--对模型视图名称的解析，即在模型视图名称添加前后缀 -->
+	<!-- 视图解释类 -->
+	<bean id="jspViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/view/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!-- 处理文件上传 -->
+	<!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> 
+		默认编码 (utf-8) <property name="defaultEncoding" value="utf-8" /> 最大内存大小 (默认10240) 
+		单位byte 1M <property name="maxInMemorySize" value="1024000" /> 临时上传目录。上传内存为10M 
+		， 上传一个100M的文件时，内存满10M时，则放到upload文件中，释放内存，当全部上传完毕时，则文件放到controller里定义的上传目录 
+		<property name="uploadTempDir" value="/temp/" /> 最大文件大小，-1为无限止(默认-1)单位byte 
+		10M <property name="maxUploadSize" value="102400000" /> </bean> -->
+</beans>
