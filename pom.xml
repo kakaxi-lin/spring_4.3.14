@@ -132,17 +132,16 @@
 	<build>
 		<finalName>spring_4.3.14</finalName>
 		<!-- 指定编译的jdk版本 -->
-		<plugins>  
-      <plugin>  
-        <artifactId>maven-compiler-plugin</artifactId>  
-        <version>3.3</version>  
-        <configuration>  
-          <source>1.7</source>  
-          <target>1.7</target>  
-		  <encoding>UTF-8</encoding>
-        </configuration>  
-      </plugin>  
-     
-    </plugins>  
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
