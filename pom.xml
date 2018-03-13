@@ -10,7 +10,7 @@
 	<properties>
 		<!-- spring版本号 -->
 		<spring.version>4.3.14.RELEASE</spring.version>
-		<org.aspectj-version>1.8.7</org.aspectj-version>
+		<org.aspectj-version>1.8.13</org.aspectj-version>
 	</properties>
 	<dependencies>
 		<dependency>
